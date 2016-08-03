@@ -1,0 +1,29 @@
+Oficinas de elaboración de DNI y Pasaporte
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=491a48509cefb410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No debería tener de nombre oficina-correos en los ficheros sino dni-pasaporte
+
+Centros de discapacitados
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=bd2b7f0e53045410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No debería tener de nombre servicios-sociales en los ficheros sino discapacidad
+
+Centros para personas sin hogar
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=5eaaa516f8045410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No debería tener de nombre servicios-sociales en los ficheros sino sin-hogar
+
+Centros de mujeres
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=93c1a516f8045410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No debería tener de nombre servicios-sociales en los ficheros sino centros-mujeres
+
+Contaminacion Acustica
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b05a79ea1770b410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No debería tener un salto de 5 filas sino de 4. Es causado por una mala generación del excel con las columnas GPS
