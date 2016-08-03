@@ -62,8 +62,6 @@ datasets_ce = {
     '208862180': 'http://datos.madrid.es/egob/catalogo/208862-7650180-ocio_salas.csv',
     '217921': 'http://datos.madrid.es/egob/catalogo/217921-0-salas-estudio.csv',
     '200761': 'http://datos.madrid.es/egob/catalogo/200761-0-parques-jardines.csv',
-    '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv',
-    '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv',
     '300028': 'http://datos.madrid.es/egob/catalogo/300028-10037314-agenda-turismo.xml'
 }
 
@@ -130,7 +128,8 @@ datasets_t = {
     '202468': 'http://datos.madrid.es/egob/catalogo/202468-0-intensidad-trafico.zip',
     '202062': 'http://datos.madrid.es/egob/catalogo/202062-0-trafico-incidencias-viapublica.xml',
     '202974': 'http://datos.madrid.es/egob/catalogo/202974-0-trafico-semaforos.xml',
-    '208426': 'http://datos.madrid.es/egob/catalogo/208426-0-trafico-semaforos-no-comunican.xml'
+    '208426': 'http://datos.madrid.es/egob/catalogo/208426-0-trafico-semaforos-no-comunican.xml',
+    '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv'
 }
 
 datasets = datasets_ce.copy()
