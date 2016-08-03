@@ -132,6 +132,21 @@ datasets_t = {
     '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv'
 }
 
+operations_create = {
+    'creation_one': [
+        '200637', '200652', '214440', '21241109', '21241111', '208327'
+    ],
+    'creation_five': [
+        '200186', '206974', '210227', '212504', '200761', '201747', '212763',
+        '200304', '211642', '201544', '212769', '202105', '200967', '207044',
+        '212841', '212846', '205736', '200284'
+    ],
+    'creation_via_txt': ['215885', '212531'],
+    'creation_211346': ['211346'],
+    'creation_212629': ['212629'],
+    'creation_208789': ['208789']
+}
+
 datasets = datasets_ce.copy()
 datasets.update(datasets_bc)
 datasets.update(datasets_v)
