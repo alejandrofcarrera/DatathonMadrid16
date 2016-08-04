@@ -1,0 +1,164 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:cells[\"CLASE-VIAL\"].value + \" \" + value",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:cells[\"CLASE-VIAL\"].value + \" \" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:if (isBlank(cells['NUM'].value), value, value + \", \" + cells['NUM'].value)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:if (isBlank(cells['NUM'].value), value, value + \", \" + cells['NUM'].value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:if (isBlank(cells['PUERTA'].value), value, value + \", \" + cells['PUERTA'].value)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:if (isBlank(cells['PUERTA'].value), value, value + \", \" + cells['PUERTA'].value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "PK",
+      "NOMBRE",
+      "ACCESIBILIDAD",
+      "CONTENT-URL",
+      "NOMBRE-VIA",
+      "BARRIO",
+      "LATITUD",
+      "LONGITUD",
+      "TIPO"
+    ]
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column PK to identificador",
+    "oldColumnName": "PK",
+    "newColumnName": "identificador"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NOMBRE to titulo",
+    "oldColumnName": "NOMBRE",
+    "newColumnName": "titulo"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ACCESIBILIDAD to accesible",
+    "oldColumnName": "ACCESIBILIDAD",
+    "newColumnName": "accesible"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column CONTENT-URL to url",
+    "oldColumnName": "CONTENT-URL",
+    "newColumnName": "url"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NOMBRE-VIA to direccion",
+    "oldColumnName": "NOMBRE-VIA",
+    "newColumnName": "direccion"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LATITUD to lat",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lat using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lat",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LONGITUD to lng",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lng using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lng",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TIPO using expression jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO to tipo",
+    "oldColumnName": "TIPO",
+    "newColumnName": "tipo"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "lat",
+          "omitBlank": false,
+          "columnName": "lat",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "row-based"
+    }
+  }
+]

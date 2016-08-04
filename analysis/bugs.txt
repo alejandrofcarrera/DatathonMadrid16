@@ -54,6 +54,54 @@ http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a
 
 *******************************
 
+Bibliotecas
+
+http://datos.madrid.es/vgn-ext-templating/v/index.jsp?vgnextoid=ed35401429b83410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD
+
+* El fichero no deberia tener datos no georeferenciados.
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=a9e237ac37efb410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
+Farmacias de guardia
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=c383f3e3fbefc410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El titulo del dataset es erroneo, hay farmacias con horario diurno.
+* Los datos no tienen coordenadas GPS WGS84.
+* El campo de Duracion deberia ser mas user friendly "hora a hora".
+* Deberia haber un campo de tipo boolean para identificar rapidamente si es una farmacia de guardia.
+
+Parques de Bomberos
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=fa3881ac7ad6b410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
+Centros de salud
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=9613e34983c73410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* La columna de horarios no es parseable facilmente.
+* En algunos datos hay mas de una codificacion, por ejemplo &uuml;.
+* Falta el telefono o hay varios en un campo sensible como el indicado.
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=da7437ac37efb410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* La columna de horarios no es parseable facilmente.
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+* El fichero no deberia tener datos no georeferenciados.
+
+Unidades Distrito de Polícia Municipal
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=2dcb729e61096410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* La columna de horarios no es parseable facilmente.
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
 Oficinas de elaboración de DNI y Pasaporte
 
 http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=491a48509cefb410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
