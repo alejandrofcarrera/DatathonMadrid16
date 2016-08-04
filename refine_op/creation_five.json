@@ -1,1 +1,1 @@
-{"encoding":"ISO-8859-1","separator":";","ignoreLines":-1,"headerLines":5,"skipDataLines":0,"limit":-1,"storeBlankRows":false,"guessCellValueTypes":false,"processQuotes":false,"storeBlankCellsAsNulls":true,"includeFileSources":false}
+{"encoding":"ISO-8859-1","separator":";","ignoreLines":-1,"headerLines":5,"skipDataLines":0,"limit":-1,"storeBlankRows":false,"guessCellValueTypes":false,"processQuotes":true,"storeBlankCellsAsNulls":true,"includeFileSources":false}
