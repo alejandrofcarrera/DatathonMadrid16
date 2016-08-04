@@ -1,0 +1,84 @@
+Errores (no importantes) encontrados en los datasets
+
+******************
+
+Oficinas de elaboración de DNI y Pasaporte
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=491a48509cefb410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener de nombre oficina-correos sino dni-pasaporte
+
+Centros de discapacitados
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=bd2b7f0e53045410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener de nombre servicios-sociales sino discapacidad
+
+Centros para personas sin hogar
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=5eaaa516f8045410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener de nombre servicios-sociales sino sin-hogar
+
+Centros de mujeres
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=93c1a516f8045410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener de nombre servicios-sociales sino centros-mujeres
+
+Areas infantiles
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=337541000be13410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga areas_infantiles_ci5 y deberia ser 200652-1-areas-infantiles
+
+Areas para mayores
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b2aa45e3fae13410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga areas_mayores_ci5 y deberia ser 200637-1-areas-mayores
+
+Farmacias de guardia
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=c383f3e3fbefc410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga turnosmadrid_guardia y deberia ser 214440-0-farmacias-guardia
+
+Avisos de ciudadanos
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=fd6112695c6bb410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default#
+
+* No tiene el nombre de descarga bien. Descarga avisa-avisos ciudadanos mensuales recibidos en el ayuntamiento 201606 y avisa-avisos ciudadanos mensuales resueltos 201606 y deberia ser 212411-9-madrid-avisa y 212411-11-madrid-avisa
+
+Bases de BiciMad
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=f17b841a2c7d6410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga bases_bicimad y deberia ser 208327-1-transporte-bicicletas-bicimad
+
+Contaminacion Acustica
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b05a79ea1770b410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga coordenadas nmts 2015 y deberia ser 211346-0-estaciones-acusticas
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b8c427a272e4e410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga ruido y deberia ser 215885-0-contaminacion-ruido
+
+Contaminacion Aerea
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=9e42c176313eb410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga informacion_estaciones_red_calidad_aire y deberia ser 212629-0-estaciones-control-aire
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=41e01e007c9db410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga horario y deberia ser 212531-7916318-calidad-aire-tiempo-real
+
+Paradas de autobus EMT
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b1b25a92842a8410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No tiene el nombre de descarga bien. Descarga NodesLines y deberia ser 208789-7648433-transportes-emt
+* Tiene en el nombre incluida la extension haciendo que quede -xls.xls
