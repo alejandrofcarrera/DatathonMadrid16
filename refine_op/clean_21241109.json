@@ -1,0 +1,304 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FECHA_DE_RECEPCION using expression grel:toDate(value, \"dd/MM/yyyy\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "FECHA_DE_RECEPCION",
+    "expression": "grel:toDate(value, \"dd/MM/yyyy\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/row-star",
+    "description": "Star rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "expression": "value",
+          "to": 1467237600000,
+          "selectError": true,
+          "selectTime": true,
+          "name": "FECHA_DE_RECEPCION",
+          "selectBlank": true,
+          "selectNonTime": true,
+          "columnName": "FECHA_DE_RECEPCION",
+          "from": 1464908400000,
+          "type": "timerange"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "starred": true
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "expression": "row.starred",
+          "invert": false,
+          "selectError": false,
+          "omitError": false,
+          "name": "Starred Rows",
+          "selectBlank": false,
+          "columnName": "",
+          "omitBlank": false,
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": false,
+                "l": "false"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/row-star",
+    "description": "Unstar rows",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "starred": false
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CANAL_DE_ENTRADA_ID using expression grel:if(isBlank(value),0,value)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "CANAL_DE_ENTRADA_ID",
+    "expression": "grel:if(isBlank(value),0,value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CANAL_DE_ENTRADA_ID using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "CANAL_DE_ENTRADA_ID",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column HORA_DE_RECEPCION",
+    "columnName": "HORA_DE_RECEPCION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column SECCION_ID",
+    "columnName": "SECCION_ID"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ANOMALIA_ID",
+    "columnName": "ANOMALIA_ID"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TIPO_DE_VIAL using expression grel:value + \" \" + cells[\"NOMBRE_DE_VIAL\"].value + \", \" + cells[\"NUMERO\"].value",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO_DE_VIAL",
+    "expression": "grel:value + \" \" + cells[\"NOMBRE_DE_VIAL\"].value + \", \" + cells[\"NUMERO\"].value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOMBRE_DE_VIAL",
+    "columnName": "NOMBRE_DE_VIAL"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NUMERO",
+    "columnName": "NUMERO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CALIFICADOR",
+    "columnName": "CALIFICADOR"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DISTRITO_ID",
+    "columnName": "DISTRITO_ID"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DISTRITO",
+    "columnName": "DISTRITO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CODIGO_POSTAL",
+    "columnName": "CODIGO_POSTAL"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column COORDENADA_REAL_X using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COORDENADA_REAL_X",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column COORDENADA_OFICIAL_X using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COORDENADA_OFICIAL_X",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "expression": "value",
+          "to": 38000000,
+          "selectError": true,
+          "selectNumeric": true,
+          "name": "COORDENADA_OFICIAL_X",
+          "selectBlank": true,
+          "columnName": "COORDENADA_OFICIAL_X",
+          "selectNonNumeric": true,
+          "from": -1000000,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA_REAL_X",
+    "columnName": "COORDENADA_REAL_X"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA_REAL_Y",
+    "columnName": "COORDENADA_REAL_Y"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column COORDENADA_OFICIAL_Y using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "COORDENADA_OFICIAL_Y",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TIPO_DE_VIAL_ID",
+    "columnName": "TIPO_DE_VIAL_ID"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TIPO_INCIDENCIA_ID",
+    "columnName": "TIPO_INCIDENCIA_ID"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CANAL_DE_ENTRADA_ID",
+    "columnName": "CANAL_DE_ENTRADA_ID"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO_INCIDENCIA to tipo",
+    "oldColumnName": "TIPO_INCIDENCIA",
+    "newColumnName": "tipo"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column CANAL_DE_ENTRADA to entrada",
+    "oldColumnName": "CANAL_DE_ENTRADA",
+    "newColumnName": "entrada"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column FECHA_DE_RECEPCION to fecha",
+    "oldColumnName": "FECHA_DE_RECEPCION",
+    "newColumnName": "fecha"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column SECCION to hecho",
+    "oldColumnName": "SECCION",
+    "newColumnName": "hecho"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ANOMALIA to observaciones",
+    "oldColumnName": "ANOMALIA",
+    "newColumnName": "observaciones"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO_DE_VIAL to direccion",
+    "oldColumnName": "TIPO_DE_VIAL",
+    "newColumnName": "direccion"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column COORDENADA_OFICIAL_X to lng",
+    "oldColumnName": "COORDENADA_OFICIAL_X",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column COORDENADA_OFICIAL_Y to lat",
+    "oldColumnName": "COORDENADA_OFICIAL_Y",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column fecha using expression jython:return value.time/1000",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "fecha",
+    "expression": "jython:return value.time/1000",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

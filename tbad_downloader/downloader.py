@@ -108,13 +108,13 @@ datasets_v = {
     '21241109': 'http://datos.madrid.es/egob/catalogo/212411-9-madrid-avisa.csv',
     '21241111': 'http://datos.madrid.es/egob/catalogo/212411-11-madrid-avisa.csv',
     '211346': 'http://datos.madrid.es/egob/catalogo/211346-0-estaciones-acusticas.xls',
-    '215885': 'http://datos.madrid.es/egob/catalogo/215885-0-contaminacion-ruido.txt',
+    # '215885': 'http://datos.madrid.es/egob/catalogo/215885-0-contaminacion-ruido.txt',
     '212629': 'http://datos.madrid.es/egob/catalogo/212629-0-estaciones-control-aire.xls',
-    '212531': 'http://datos.madrid.es/egob/catalogo/212531-7916318-calidad-aire-tiempo-real.txt',
+    # '212531': 'http://datos.madrid.es/egob/catalogo/212531-7916318-calidad-aire-tiempo-real.txt',
     # '209799': 'http://datos.madrid.es/egob/catalogo/209799-3-contenedores_pilas_marquesinas.csv',
     # '204410': 'http://datos.madrid.es/egob/catalogo/204410-1-contenedores-ropa.csv',
     # '212616': 'http://datos.madrid.es/egob/catalogo/212616-18-policia-estadisticas.xls',
-    '200284': 'http://datos.madrid.es/egob/catalogo/200284-0-puntos-limpios.csv'
+    # '200284': 'http://datos.madrid.es/egob/catalogo/200284-0-puntos-limpios.csv'
 }
 
 
@@ -124,23 +124,24 @@ datasets_t = {
     # '202584': 'http://datos.madrid.es/egob/catalogo/202584-0-aparcamientos-residentes.csv',
     # '208083': 'http://datos.madrid.es/egob/catalogo/208083-0-estacionamiento-pmr.xls',
     '208789': 'http://datos.madrid.es/egob/catalogo/208789-7648433-transportes-emt-xls.xls',
-    '202087': 'http://datos.madrid.es/egob/catalogo/202087-0-trafico-intensidad.xml',
-    '202468': 'http://datos.madrid.es/egob/catalogo/202468-0-intensidad-trafico.zip',
-    '202062': 'http://datos.madrid.es/egob/catalogo/202062-0-trafico-incidencias-viapublica.xml',
-    '202974': 'http://datos.madrid.es/egob/catalogo/202974-0-trafico-semaforos.xml',
-    '208426': 'http://datos.madrid.es/egob/catalogo/208426-0-trafico-semaforos-no-comunican.xml',
+    # '202087': 'http://datos.madrid.es/egob/catalogo/202087-0-trafico-intensidad.xml',
+    # '202468': 'http://datos.madrid.es/egob/catalogo/202468-0-intensidad-trafico.zip',
+    # '202062': 'http://datos.madrid.es/egob/catalogo/202062-0-trafico-incidencias-viapublica.xml',
+    # '202974': 'http://datos.madrid.es/egob/catalogo/202974-0-trafico-semaforos.xml',
+    # '208426': 'http://datos.madrid.es/egob/catalogo/208426-0-trafico-semaforos-no-comunican.xml',
     '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv'
 }
 
 operations_create = {
     'creation_one': [
-        '200637', '200652', '214440', '21241109', '21241111', '208327'
+        '200637', '200652', '214440', '208327'
     ],
     'creation_five': [
         '200186', '206974', '210227', '212504', '200761', '201747', '212763',
         '200304', '211642', '201544', '212769', '202105', '200967', '207044',
         '212841', '212846', '205736', '200284'
     ],
+    'creation_advice': ['21241109', '21241111'],
     'creation_via_txt': ['215885', '212531'],
     'creation_211346': ['211346'],
     'creation_212629': ['212629'],

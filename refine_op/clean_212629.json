@@ -1,0 +1,297 @@
+[
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column",
+    "columnName": "Column"
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "SITUACIÓN DE LAS ESTACIONES DE LA RED DE VIGILANCIA DE LA CALIDAD DEL AIRE NÚMERO",
+          "omitBlank": false,
+          "columnName": "SITUACIÓN DE LAS ESTACIONES DE LA RED DE VIGILANCIA DE LA CALIDAD DEL AIRE NÚMERO",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column SITUACIÓN DE LAS ESTACIONES DE LA RED DE VIGILANCIA DE LA CALIDAD DEL AIRE NÚMERO to identificacion",
+    "oldColumnName": "SITUACIÓN DE LAS ESTACIONES DE LA RED DE VIGILANCIA DE LA CALIDAD DEL AIRE NÚMERO",
+    "newColumnName": "identificacion"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ESTACIÓN to titulo",
+    "oldColumnName": "ESTACIÓN",
+    "newColumnName": "titulo"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column DIRECCIÓN to direccion",
+    "oldColumnName": "DIRECCIÓN",
+    "newColumnName": "direccion"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LONGITUD to lng",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LATITUD to lat",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ALTITUD to alt",
+    "oldColumnName": "ALTITUD",
+    "newColumnName": "alt"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column SENSORES METEOROLÓGICOS UV to METEO",
+    "oldColumnName": "SENSORES METEOROLÓGICOS UV",
+    "newColumnName": "METEO"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column CONTAMINANTE MEDIDO NO2 to NO2",
+    "oldColumnName": "CONTAMINANTE MEDIDO NO2",
+    "newColumnName": "NO2"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO ESTACION * to tipo",
+    "oldColumnName": "TIPO ESTACION *",
+    "newColumnName": "tipo"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NO2 using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NO2",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column SO2 using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "SO2",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column CO using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "CO",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column PM10 using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PM10",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column PM2,5 using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PM2,5",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column O3 using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "O3",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column BTX using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BTX",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column HC using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "HC",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column METEO using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "METEO",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column VV using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "VV",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column DV using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DV",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TMP using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TMP",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column HR using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "HR",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column PRB using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PRB",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column RS using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "RS",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LL using expression grel:if(value == 'X',1,0)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LL",
+    "expression": "grel:if(value == 'X',1,0)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
