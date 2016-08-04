@@ -1,5 +1,44 @@
 [
   {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:cells[\"CLASE-VIAL\"].value + \" \" + value",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:cells[\"CLASE-VIAL\"].value + \" \" + value",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:if (isBlank(cells['NUM'].value), value, value + \", \" + cells['NUM'].value)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:if (isBlank(cells['NUM'].value), value, value + \", \" + cells['NUM'].value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:if (isBlank(cells['PUERTA'].value), value, value + \", \" + cells['PUERTA'].value)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE-VIA",
+    "expression": "grel:if (isBlank(cells['PUERTA'].value), value, value + \", \" + cells['PUERTA'].value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
     "op": "core/column-reorder",
     "description": "Reorder columns",
     "columnNames": [
@@ -8,8 +47,6 @@
       "ACCESIBILIDAD",
       "CONTENT-URL",
       "NOMBRE-VIA",
-      "CLASE-VIAL",
-      "NUM",
       "BARRIO",
       "LATITUD",
       "LONGITUD",
@@ -41,51 +78,10 @@
     "newColumnName": "url"
   },
   {
-    "op": "core/text-transform",
-    "description": "Text transform on cells in column NOMBRE-VIA using expression grel:cells['CLASE-VIAL'].value + \" \" + value + \", \" + cells['NUM'].value",
-    "engineConfig": {
-      "facets": [],
-      "mode": "row-based"
-    },
-    "columnName": "NOMBRE-VIA",
-    "expression": "grel:cells['CLASE-VIAL'].value + \" \" + value + \", \" + cells['NUM'].value",
-    "onError": "keep-original",
-    "repeat": false,
-    "repeatCount": 10
-  },
-  {
     "op": "core/column-rename",
     "description": "Rename column NOMBRE-VIA to direccion",
     "oldColumnName": "NOMBRE-VIA",
     "newColumnName": "direccion"
-  },
-  {
-    "op": "core/column-removal",
-    "description": "Remove column CLASE-VIAL",
-    "columnName": "CLASE-VIAL"
-  },
-  {
-    "op": "core/column-removal",
-    "description": "Remove column NUM",
-    "columnName": "NUM"
-  },
-  {
-    "op": "core/column-removal",
-    "description": "Remove column BARRIO",
-    "columnName": "BARRIO"
-  },
-  {
-    "op": "core/text-transform",
-    "description": "Text transform on cells in column LATITUD using expression value.toNumber()",
-    "engineConfig": {
-      "facets": [],
-      "mode": "row-based"
-    },
-    "columnName": "LATITUD",
-    "expression": "value.toNumber()",
-    "onError": "keep-original",
-    "repeat": false,
-    "repeatCount": 10
   },
   {
     "op": "core/column-rename",
@@ -95,12 +91,12 @@
   },
   {
     "op": "core/text-transform",
-    "description": "Text transform on cells in column LONGITUD using expression value.toNumber()",
+    "description": "Text transform on cells in column lat using expression value.toNumber()",
     "engineConfig": {
       "facets": [],
       "mode": "row-based"
     },
-    "columnName": "LONGITUD",
+    "columnName": "lat",
     "expression": "value.toNumber()",
     "onError": "keep-original",
     "repeat": false,
@@ -113,22 +109,35 @@
     "newColumnName": "lng"
   },
   {
-    "op": "core/column-rename",
-    "description": "Rename column TIPO to tipo",
-    "oldColumnName": "TIPO",
-    "newColumnName": "tipo"
-  },
-  {
     "op": "core/text-transform",
-    "description": "Text transform on cells in column tipo using expression jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
+    "description": "Text transform on cells in column lng using expression value.toNumber()",
     "engineConfig": {
       "facets": [],
       "mode": "row-based"
     },
-    "columnName": "tipo",
+    "columnName": "lng",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TIPO using expression jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
     "expression": "jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO to tipo",
+    "oldColumnName": "TIPO",
+    "newColumnName": "tipo"
   }
 ]
