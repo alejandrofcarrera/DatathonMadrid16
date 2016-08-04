@@ -1,8 +1,11 @@
 
+import refine.refine as refine
 import requests
 import hashlib
+import json
 import os
 import re
+
 
 #############################################
 
@@ -24,6 +27,16 @@ def download_dataset(fpath, dataset_id, dataset_url):
         for block in response.iter_content(1024):
             handle.write(block)
     print "Downloaded Dataset: " + dataset_id
+
+
+def get_project_options(identifier):
+    idjson = None
+    for i in operations_create:
+        if identifier in operations_create[i]:
+            idjson = i
+            break
+    with open('../refine_op/' + idjson + '.json', 'r') as handle:
+        return json.loads(handle.read())
 
 
 def detect_dataset(old_path, new_path):
@@ -48,7 +61,7 @@ def detect_dataset(old_path, new_path):
 datasets_ce = {
     '206974': 'http://datos.madrid.es/egob/catalogo/206974-0-agenda-eventos-culturales-100.csv',
     '212504': 'http://datos.madrid.es/egob/catalogo/212504-0-agenda-actividades-deportes.csv',
-    '200652': 'http://datos.madrid.es/egob/catalogo/200652-1-areas-infantiles.csv',
+    # '200652': 'http://datos.madrid.es/egob/catalogo/200652-1-areas-infantiles.csv',
     '200637': 'http://datos.madrid.es/egob/catalogo/200637-1-areas-mayores.csv',
     # '206717': 'http://datos.madrid.es/egob/catalogo/206717-0-agenda-eventos-bibliotecas.csv',
     '200186': 'http://datos.madrid.es/egob/catalogo/200186-0-polideportivos.csv',
@@ -79,7 +92,7 @@ datasets_bc = {
     # '205732': 'http://datos.madrid.es/egob/catalogo/205732-0-servicios-sociales.csv',
     # '206117': 'http://datos.madrid.es/egob/catalogo/206117-0-entidades-participacion-ciudadan.csv',
     # '202781': 'http://datos.madrid.es/egob/catalogo/202781-0-entidades-participacion-ciudadan.csv',
-    '214440': 'http://datos.madrid.es/egob/catalogo/214440-0-farmacias-guardia.csv',
+    # '214440': 'http://datos.madrid.es/egob/catalogo/214440-0-farmacias-guardia.csv',
     # '202162': 'http://datos.madrid.es/egob/catalogo/202162-0-instalaciones-accesibles-municip.csv',
     # '202180': 'http://datos.madrid.es/egob/catalogo/202180-0-instalaciones-accesibles-no-muni.csv',
     # '216619': 'http://datos.madrid.es/egob/catalogo/216619-0-wifi-municipal.csv',
@@ -105,11 +118,11 @@ datasets_bc = {
 
 # Viability
 datasets_v = {
-    '21241109': 'http://datos.madrid.es/egob/catalogo/212411-9-madrid-avisa.csv',
-    '21241111': 'http://datos.madrid.es/egob/catalogo/212411-11-madrid-avisa.csv',
-    '211346': 'http://datos.madrid.es/egob/catalogo/211346-0-estaciones-acusticas.xls',
+    # '21241109': 'http://datos.madrid.es/egob/catalogo/212411-9-madrid-avisa.csv',
+    # '21241111': 'http://datos.madrid.es/egob/catalogo/212411-11-madrid-avisa.csv',
+    # '211346': 'http://datos.madrid.es/egob/catalogo/211346-0-estaciones-acusticas.xls',
     # '215885': 'http://datos.madrid.es/egob/catalogo/215885-0-contaminacion-ruido.txt',
-    '212629': 'http://datos.madrid.es/egob/catalogo/212629-0-estaciones-control-aire.xls',
+    # '212629': 'http://datos.madrid.es/egob/catalogo/212629-0-estaciones-control-aire.xls',
     # '212531': 'http://datos.madrid.es/egob/catalogo/212531-7916318-calidad-aire-tiempo-real.txt',
     # '209799': 'http://datos.madrid.es/egob/catalogo/209799-3-contenedores_pilas_marquesinas.csv',
     # '204410': 'http://datos.madrid.es/egob/catalogo/204410-1-contenedores-ropa.csv',
@@ -123,13 +136,13 @@ datasets_t = {
     # '202625': 'http://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.csv',
     # '202584': 'http://datos.madrid.es/egob/catalogo/202584-0-aparcamientos-residentes.csv',
     # '208083': 'http://datos.madrid.es/egob/catalogo/208083-0-estacionamiento-pmr.xls',
-    '208789': 'http://datos.madrid.es/egob/catalogo/208789-7648433-transportes-emt-xls.xls',
+    # '208789': 'http://datos.madrid.es/egob/catalogo/208789-7648433-transportes-emt-xls.xls',
     # '202087': 'http://datos.madrid.es/egob/catalogo/202087-0-trafico-intensidad.xml',
     # '202468': 'http://datos.madrid.es/egob/catalogo/202468-0-intensidad-trafico.zip',
     # '202062': 'http://datos.madrid.es/egob/catalogo/202062-0-trafico-incidencias-viapublica.xml',
     # '202974': 'http://datos.madrid.es/egob/catalogo/202974-0-trafico-semaforos.xml',
     # '208426': 'http://datos.madrid.es/egob/catalogo/208426-0-trafico-semaforos-no-comunican.xml',
-    '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv'
+    # '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv'
 }
 
 operations_create = {
@@ -174,6 +187,10 @@ for i in datasets.keys():
         file_path = name_new_path
     download_dataset(file_path, i, datasets[i])
     if not detect_dataset(name_path, name_new_path):
-        print " * Doing things to data"
+        opt = get_project_options(i)
+        r = refine.Refine()
+        p = r.new_project(name_path, opt)
+        p.apply_operations('../refine_op/clean_' + i + '.json')
+        p.delete_project()
 
 print '\nTBADDownloader has finished.\n'
