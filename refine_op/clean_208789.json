@@ -1,0 +1,110 @@
+[
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Node to identificador",
+    "oldColumnName": "Node",
+    "newColumnName": "identificador"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column PosxNode to lng",
+    "oldColumnName": "PosxNode",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column PosyNode to lat",
+    "oldColumnName": "PosyNode",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Name to titulo",
+    "oldColumnName": "Name",
+    "newColumnName": "titulo"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Lines using expression grel:value.replace(\"/1\",\"\").replace(\"/2\",\"\")",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 2.3599999999999994,
+          "expression": "grel:facetCount(value, \"value\", \"Name\")",
+          "selectError": true,
+          "selectNumeric": true,
+          "selectBlank": true,
+          "name": "Name",
+          "columnName": "Name",
+          "selectNonNumeric": true,
+          "from": 1.8,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Lines",
+    "expression": "grel:value.replace(\"/1\",\"\").replace(\"/2\",\"\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Lines using expression grel:\"[\" + value.replace(\" \",\", \") + \"]\"",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 2.3599999999999994,
+          "expression": "grel:facetCount(value, \"value\", \"Name\")",
+          "selectError": true,
+          "selectNumeric": true,
+          "selectBlank": true,
+          "name": "Name",
+          "columnName": "Name",
+          "selectNonNumeric": true,
+          "from": 1.8,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "Lines",
+    "expression": "grel:\"[\" + value.replace(\" \",\", \") + \"]\"",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Lines to lines",
+    "oldColumnName": "Lines",
+    "newColumnName": "lines"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column number_lines at index 5 based on column lines using expression grel:length(parseJson(value))",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 2.3599999999999994,
+          "expression": "grel:facetCount(value, \"value\", \"Name\")",
+          "selectError": true,
+          "selectNumeric": true,
+          "selectBlank": true,
+          "name": "Name",
+          "columnName": "Name",
+          "selectNonNumeric": true,
+          "from": 1.8,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "newColumnName": "number_lines",
+    "columnInsertIndex": 5,
+    "baseColumnName": "lines",
+    "expression": "grel:length(parseJson(value))",
+    "onError": "set-to-blank"
+  }
+]
