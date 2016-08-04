@@ -1,0 +1,214 @@
+[
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Tipo Área",
+    "columnName": "Tipo Área"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Dirección auxiliar",
+    "columnName": "Dirección auxiliar"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Distrito",
+    "columnName": "Distrito"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Código Area",
+    "columnName": "Código Area"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Fecha de instalación",
+    "columnName": "Fecha de instalación"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Fecha de desinstalación",
+    "columnName": "Fecha de desinstalación"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Fecha de alta mantenimiento",
+    "columnName": "Fecha de alta mantenimiento"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Fecha de baja de mantenimiento",
+    "columnName": "Fecha de baja de mantenimiento"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Usuario ult. modificación",
+    "columnName": "Usuario ult. modificación"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Cod. Vial",
+    "columnName": "Cod. Vial"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Fecha ult. modificación",
+    "columnName": "Fecha ult. modificación"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Observaciones",
+    "columnName": "Observaciones"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NDP to identificador",
+    "oldColumnName": "NDP",
+    "newColumnName": "identificador"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column identificador to position 0",
+    "columnName": "identificador",
+    "index": 0
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Dirección to direccion",
+    "oldColumnName": "Dirección",
+    "newColumnName": "direccion"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column X to lat",
+    "oldColumnName": "X",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column lat to lng",
+    "oldColumnName": "lat",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Y to lat",
+    "oldColumnName": "Y",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column lat to position 3",
+    "columnName": "lat",
+    "index": 3
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Edad uso to observaciones",
+    "oldColumnName": "Edad uso",
+    "newColumnName": "observaciones"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Accesible to accesible",
+    "oldColumnName": "Accesible",
+    "newColumnName": "accesible"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column accesible using expression grel:replace(value, \"No\", \"0\")",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Edad uso",
+          "omitBlank": false,
+          "columnName": "Edad uso",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "009 · NO ACCESIBLE",
+                "l": "009 · NO ACCESIBLE"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "accesible",
+    "expression": "grel:replace(value, \"No\", \"0\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column accesible using expression grel:replace(value,\"Sí\",\"1\")",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "Edad uso",
+          "omitBlank": false,
+          "columnName": "Edad uso",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "009 · NO ACCESIBLE",
+                "l": "009 · NO ACCESIBLE"
+              }
+            }
+          ]
+        },
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "accesible",
+          "omitBlank": false,
+          "columnName": "accesible",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "Sí",
+                "l": "Sí"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "accesible",
+    "expression": "grel:replace(value,\"Sí\",\"1\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column accesible using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "accesible",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

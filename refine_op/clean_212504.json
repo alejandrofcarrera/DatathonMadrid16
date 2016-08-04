@@ -1,0 +1,259 @@
+[
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "expression": "isBlank(value)",
+          "invert": false,
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "LATITUD",
+          "omitBlank": false,
+          "columnName": "LATITUD",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECIO",
+    "columnName": "PRECIO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LARGA-DURACION",
+    "columnName": "LARGA-DURACION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DIAS-SEMANA",
+    "columnName": "DIAS-SEMANA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DIAS-EXCLUIDOS",
+    "columnName": "DIAS-EXCLUIDOS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DESCRIPCION",
+    "columnName": "DESCRIPCION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column HORA",
+    "columnName": "HORA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column URL-ACTIVIDAD",
+    "columnName": "URL-ACTIVIDAD"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column URL-INSTALACION",
+    "columnName": "URL-INSTALACION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA-X",
+    "columnName": "COORDENADA-X"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA-Y",
+    "columnName": "COORDENADA-Y"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DISTRITO",
+    "columnName": "DISTRITO"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ID-EVENTO to identificador",
+    "oldColumnName": "ID-EVENTO",
+    "newColumnName": "identificador"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TITULO to titulo",
+    "oldColumnName": "TITULO",
+    "newColumnName": "titulo"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column GRATUITO to gratuito",
+    "oldColumnName": "GRATUITO",
+    "newColumnName": "gratuito"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column FECHA to fecha_inicio",
+    "oldColumnName": "FECHA",
+    "newColumnName": "fecha_inicio"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column FECHA-FIN to fecha_fin",
+    "oldColumnName": "FECHA-FIN",
+    "newColumnName": "fecha_fin"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column CONTENT-URL to url",
+    "oldColumnName": "CONTENT-URL",
+    "newColumnName": "url"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TITULO-ACTIVIDAD to actividad",
+    "oldColumnName": "TITULO-ACTIVIDAD",
+    "newColumnName": "actividad"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NOMBRE-INSTALACION to lugar",
+    "oldColumnName": "NOMBRE-INSTALACION",
+    "newColumnName": "lugar"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LATITUD to lat",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LONGITUD to lng",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO to tipo",
+    "oldColumnName": "TIPO",
+    "newColumnName": "tipo"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column fecha_inicio using expression value.toDate()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "fecha_inicio",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column fecha_fin using expression value.toDate()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "fecha_fin",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lat using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lat",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lng using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lng",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "identificador",
+      "titulo",
+      "gratuito",
+      "fecha_inicio",
+      "fecha_fin",
+      "url",
+      "actividad",
+      "lugar",
+      "lat",
+      "lng",
+      "tipo"
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column fecha_inicio using expression jython:return value.getTimeInMillis()/1000",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "fecha_inicio",
+    "expression": "jython:return value.getTimeInMillis()/1000",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column fecha_fin using expression jython:return value.getTimeInMillis()/1000",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "fecha_fin",
+    "expression": "jython:return value.getTimeInMillis()/1000",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column tipo using expression jython:import re\nreturn re.sub(\"([A-Z])\", r' \\1', value[23:]).replace(\"/\",\",\")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo",
+    "expression": "jython:import re\nreturn re.sub(\"([A-Z])\", r' \\1', value[23:]).replace(\"/\",\",\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

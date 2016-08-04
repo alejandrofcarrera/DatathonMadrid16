@@ -1,0 +1,369 @@
+[
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "isBlank(value)",
+          "selectError": false,
+          "omitError": false,
+          "name": "LATITUD",
+          "selectBlank": false,
+          "columnName": "LATITUD",
+          "omitBlank": false,
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": true,
+                "l": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PRECIO",
+    "columnName": "PRECIO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LARGA-DURACION",
+    "columnName": "LARGA-DURACION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DIAS-SEMANA",
+    "columnName": "DIAS-SEMANA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DIAS-EXCLUIDOS",
+    "columnName": "DIAS-EXCLUIDOS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column HORA",
+    "columnName": "HORA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DESCRIPCION",
+    "columnName": "DESCRIPCION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column URL-INSTALACION",
+    "columnName": "URL-INSTALACION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA-X",
+    "columnName": "COORDENADA-X"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA-Y",
+    "columnName": "COORDENADA-Y"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DISTRITO",
+    "columnName": "DISTRITO"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column TIPO using expression jython:import re\nreturn re.sub(\"([A-Z])\", r' \\1', value[23:])",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "TIPO",
+    "expression": "jython:import re\nreturn re.sub(\"([A-Z])\", r' \\1', value[23:])",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FECHA using expression value.toDate()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "FECHA",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FECHA-FIN using expression value.toDate()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "FECHA-FIN",
+    "expression": "value.toDate()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FECHA using expression jython:return value.getTimeInMillis()/1000",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "FECHA",
+    "expression": "jython:return value.getTimeInMillis()/1000",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column FECHA-FIN using expression jython:return value.getTimeInMillis()/1000",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "FECHA-FIN",
+    "expression": "jython:return value.getTimeInMillis()/1000",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column",
+    "columnName": "Column"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ID-EVENTO to identificador",
+    "oldColumnName": "ID-EVENTO",
+    "newColumnName": "identificador"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TITULO to titulo",
+    "oldColumnName": "TITULO",
+    "newColumnName": "titulo"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column GRATUITO to gratuito",
+    "oldColumnName": "GRATUITO",
+    "newColumnName": "gratuito"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column FECHA to fecha_inicio",
+    "oldColumnName": "FECHA",
+    "newColumnName": "fecha_inicio"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column FECHA-FIN to fecha_fin",
+    "oldColumnName": "FECHA-FIN",
+    "newColumnName": "fecha_fin"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TITULO-ACTIVIDAD to actividad",
+    "oldColumnName": "TITULO-ACTIVIDAD",
+    "newColumnName": "actividad"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column CONTENT-URL to url",
+    "oldColumnName": "CONTENT-URL",
+    "newColumnName": "url"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NOMBRE-INSTALACION to lugar",
+    "oldColumnName": "NOMBRE-INSTALACION",
+    "newColumnName": "lugar"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LATITUD to lat",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LONGITUD to lng",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO to tipo",
+    "oldColumnName": "TIPO",
+    "newColumnName": "tipo"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column URL-ACTIVIDAD",
+    "columnName": "URL-ACTIVIDAD"
+  },
+  {
+    "op": "core/column-reorder",
+    "description": "Reorder columns",
+    "columnNames": [
+      "identificador",
+      "titulo",
+      "gratuito",
+      "fecha_inicio",
+      "fecha_fin",
+      "url",
+      "actividad",
+      "lugar",
+      "lat",
+      "lng",
+      "tipo"
+    ]
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "fecha_inicio",
+          "omitBlank": false,
+          "columnName": "fecha_inicio",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 1479000000,
+          "expression": "value",
+          "selectError": true,
+          "selectNumeric": false,
+          "selectBlank": true,
+          "name": "fecha_inicio",
+          "columnName": "fecha_inicio",
+          "selectNonNumeric": true,
+          "from": 1386000000,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lat using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lat",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column lng using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "lng",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 4500000,
+          "expression": "value",
+          "selectError": true,
+          "selectNumeric": false,
+          "selectBlank": true,
+          "name": "lat",
+          "columnName": "lat",
+          "selectNonNumeric": true,
+          "from": 0,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "to": 41,
+          "expression": "value",
+          "selectError": true,
+          "selectNumeric": true,
+          "selectBlank": true,
+          "name": "lng",
+          "columnName": "lng",
+          "selectNonNumeric": true,
+          "from": 1,
+          "type": "range"
+        }
+      ],
+      "mode": "row-based"
+    }
+  },
+  {
+    "op": "core/row-removal",
+    "description": "Remove rows",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": true,
+          "name": "tipo",
+          "omitBlank": false,
+          "columnName": "tipo",
+          "type": "list",
+          "selection": []
+        }
+      ],
+      "mode": "row-based"
+    }
+  }
+]

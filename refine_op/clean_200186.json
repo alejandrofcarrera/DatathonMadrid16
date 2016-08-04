@@ -1,0 +1,236 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column PK using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "PK",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DESCRIPCION-ENTIDAD",
+    "columnName": "DESCRIPCION-ENTIDAD"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column HORARIO",
+    "columnName": "HORARIO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column EQUIPAMIENTO",
+    "columnName": "EQUIPAMIENTO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DESCRIPCION",
+    "columnName": "DESCRIPCION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ORIENTACION",
+    "columnName": "ORIENTACION"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column LOCALIDAD",
+    "columnName": "LOCALIDAD"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PROVINCIA",
+    "columnName": "PROVINCIA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CODIGO-POSTAL",
+    "columnName": "CODIGO-POSTAL"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column DISTRITO",
+    "columnName": "DISTRITO"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA-X",
+    "columnName": "COORDENADA-X"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column COORDENADA-Y",
+    "columnName": "COORDENADA-Y"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column FAX",
+    "columnName": "FAX"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column EMAIL",
+    "columnName": "EMAIL"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LATITUD using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LATITUD",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LONGITUD using expression value.toNumber()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LONGITUD",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PLANTA",
+    "columnName": "PLANTA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column PUERTA",
+    "columnName": "PUERTA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column ESCALERAS",
+    "columnName": "ESCALERAS"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column TIPO-NUM",
+    "columnName": "TIPO-NUM"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column direccion at index 6 based on column NOMBRE-VIA using expression grel:cells['CLASE-VIAL'].value + \" \" + value + \", \" + cells['NUM'].value",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "direccion",
+    "columnInsertIndex": 6,
+    "baseColumnName": "NOMBRE-VIA",
+    "expression": "grel:cells['CLASE-VIAL'].value + \" \" + value + \", \" + cells['NUM'].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NOMBRE-VIA",
+    "columnName": "NOMBRE-VIA"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column CLASE-VIAL",
+    "columnName": "CLASE-VIAL"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column NUM",
+    "columnName": "NUM"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column NOMBRE to titulo",
+    "oldColumnName": "NOMBRE",
+    "newColumnName": "titulo"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TRANSPORTE to observaciones",
+    "oldColumnName": "TRANSPORTE",
+    "newColumnName": "observaciones"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column ACCESIBILIDAD to accesible",
+    "oldColumnName": "ACCESIBILIDAD",
+    "newColumnName": "accesible"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column CONTENT-URL to url",
+    "oldColumnName": "CONTENT-URL",
+    "newColumnName": "url"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LATITUD to lat",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "lat"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column LONGITUD to lng",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "lng"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TELEFONO to telefono",
+    "oldColumnName": "TELEFONO",
+    "newColumnName": "telefono"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column TIPO to tipo",
+    "oldColumnName": "TIPO",
+    "newColumnName": "tipo"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Column",
+    "columnName": "Column"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column tipo using expression jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tipo",
+    "expression": "jython:import re\nreturn re.sub(\"([A-Z])\", r\" \\1\", value[32:]).replace(\"/\",\", \")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column observaciones",
+    "columnName": "observaciones"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column telefono",
+    "columnName": "telefono"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column PK to identificador",
+    "oldColumnName": "PK",
+    "newColumnName": "identificador"
+  }
+]

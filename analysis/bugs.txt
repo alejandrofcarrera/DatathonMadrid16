@@ -1,3 +1,59 @@
+
+*******************************
+
+Actividades culturales
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=6c0b6d01df986410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener datos no georeferenciados.
+* Tiene columnas que sobran.
+* Hay algunos titulos que no han sido revisados o tienen erratas.
+* Hay algunas filas con mala geolocalización, no tiene un formato WGS84 valido.
+* Hay algunas filas sin fecha de comienzo.
+* Hay algunas filas sin tipo por lo que el RDF no podría tener una URI valida.
+
+Actividades deportivas
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b802209e501cb410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener datos no georeferenciados.
+* Tiene columnas que sobran.
+
+Areas infantiles
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=337541000be13410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* Hay booleanos con tilde: No, Sí.
+* Los datos no tienen coordenadas GPS WGS84.
+* No hay explicacion en un pdf para la columna Edad uso con valores "No accesible" o "Accesible".
+
+Areas para personas mayores
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=b2aa45e3fae13410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* No se ha encontrado nada a destacar.
+
+Polideportivos
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=4a5fbef4b2503410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
+Piscinas municipales
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=3d481f900c6e9410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* Hay duplicidad con los datos del dataset polideportivos, quizas seria conveniente una columna indicando que es tambien piscina municipal en vez de ser un nuevo dataset.
+* La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
+
+Parques y jardines
+
+http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=dc758935dde13410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
+
+* El fichero no deberia tener datos no georeferenciados.
+
+*******************************
+
 Oficinas de elaboración de DNI y Pasaporte
 
 http://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=491a48509cefb410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default
