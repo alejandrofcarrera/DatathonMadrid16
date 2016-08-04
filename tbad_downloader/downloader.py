@@ -91,15 +91,15 @@ datasets_bc = {
     '211642': 'http://datos.madrid.es/egob/catalogo/211642-0-bomberos-parques.csv',
     '201544': 'http://datos.madrid.es/egob/catalogo/201544-0-centros-salud.csv',
     '212769': 'http://datos.madrid.es/egob/catalogo/212769-0-atencion-medica.csv',
-    '202105': 'http://datos.madrid.es/egob/catalogo/202105-0-mercadillos.csv',
-    '200967': 'http://datos.madrid.es/egob/catalogo/200967-0-mercados.csv',
+    # '202105': 'http://datos.madrid.es/egob/catalogo/202105-0-mercadillos.csv',
+    # '200967': 'http://datos.madrid.es/egob/catalogo/200967-0-mercados.csv',
     # '300048': 'http://datos.madrid.es/egob/catalogo/300048-0-ancianos-residencias-apartamento.csv',
     '207044': 'http://datos.madrid.es/egob/catalogo/207044-0-oficina-policia.csv',
     # '203166': 'http://datos.madrid.es/egob/catalogo/203166-0-universidades-educacion.csv',
     # '212774': 'http://datos.madrid.es/egob/catalogo/212774-0-atencion-social.csv',
-    '212841': 'http://datos.madrid.es/egob/catalogo/212841-0-oficinas-correos.csv',
-    '212846': 'http://datos.madrid.es/egob/catalogo/212846-0-oficinas-correos.csv',
-    '205736': 'http://datos.madrid.es/egob/catalogo/205736-0-servicios-sociales.csv'
+    # '212841': 'http://datos.madrid.es/egob/catalogo/212841-0-oficinas-correos.csv',
+    # '212846': 'http://datos.madrid.es/egob/catalogo/212846-0-oficinas-correos.csv',
+    # '205736': 'http://datos.madrid.es/egob/catalogo/205736-0-servicios-sociales.csv'
 }
 
 
