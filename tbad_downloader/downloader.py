@@ -3,8 +3,16 @@ import refine.refine as refine
 import requests
 import hashlib
 import json
+import csv
 import os
 import re
+
+
+#############################################
+
+
+dataset_e = []
+dataset_p = []
 
 
 #############################################
@@ -21,12 +29,45 @@ def generate_sha(fpath):
     return sha1.hexdigest()
 
 
+def add_to_big_dataset(dataset_id, pos, dataset_row):
+    if dataset_id in list_points:
+        if pos == 0 and len(dataset_p) == 0:
+            dataset_p.append(dataset_row)
+        elif pos > 0:
+            dataset_p.append(dataset_row)
+    else:
+        if pos == 0 and len(dataset_e) == 0:
+            dataset_e.append(dataset_row)
+        elif pos > 0:
+            dataset_e.append(dataset_row)
+
+
+def write_big_dataset(dataset_name, dataset_values):
+    with open(dataset_folder + dataset_name + '.csv', 'wb') as f:
+        writ = csv.writer(f)
+        writ.writerows(dataset_values)
+    print "- Big dataset: " + dataset_name + " saved."
+
+
+def write_dataset(dataset_id, dataset_values, add_function):
+    with open(dataset_folder + dataset_id + '_dataset.csv', 'wb') as f:
+        ec_file_list = dataset_values.split('\n')
+        writ = csv.writer(f)
+        for x in range(0, len(ec_file_list) - 1):
+            d = ec_file_list[x]
+            d = d.replace('\t ', '\t')
+            da = d.split('\t')
+            add_function(dataset_id, x, da)
+            writ.writerow(da)
+    print " * Dataset: " + dataset_id + " updated !"
+
+
 def download_dataset(fpath, dataset_id, dataset_url):
     with open(fpath, 'wb') as handle:
         response = requests.get(dataset_url, stream=True)
         for block in response.iter_content(1024):
             handle.write(block)
-    print "Downloaded Dataset: " + dataset_id
+    print "- Downloaded Dataset: " + dataset_id
 
 
 def get_project_options(identifier):
@@ -62,7 +103,7 @@ datasets_ce = {
     '206974': 'http://datos.madrid.es/egob/catalogo/206974-0-agenda-eventos-culturales-100.csv',
     '212504': 'http://datos.madrid.es/egob/catalogo/212504-0-agenda-actividades-deportes.csv',
     # '200652': 'http://datos.madrid.es/egob/catalogo/200652-1-areas-infantiles.csv',
-    '200637': 'http://datos.madrid.es/egob/catalogo/200637-1-areas-mayores.csv',
+    # '200637': 'http://datos.madrid.es/egob/catalogo/200637-1-areas-mayores.csv',
     # '206717': 'http://datos.madrid.es/egob/catalogo/206717-0-agenda-eventos-bibliotecas.csv',
     '200186': 'http://datos.madrid.es/egob/catalogo/200186-0-polideportivos.csv',
     # '212808': 'http://datos.madrid.es/egob/catalogo/212808-0-espacio-deporte.csv',
@@ -81,7 +122,7 @@ datasets_ce = {
 
 # Buildings / Centers
 datasets_bc = {
-    '201747': 'http://datos.madrid.es/egob/catalogo/201747-0-bibliobuses-bibliotecas.csv',
+    # '201747': 'http://datos.madrid.es/egob/catalogo/201747-0-bibliobuses-bibliotecas.csv',
     '212763': 'http://datos.madrid.es/egob/catalogo/212763-0-biblioteca-universitaria.csv',
     '200304': 'http://datos.madrid.es/egob/catalogo/200304-0-centros-culturales.csv',
     # '205244': 'http://datos.madrid.es/egob/catalogo/205244-0-infancia-familia-adolescentes.csv',
@@ -145,6 +186,12 @@ datasets_t = {
     # '208327': 'http://datos.madrid.es/egob/catalogo/208327-1-transporte-bicicletas-bicimad.csv'
 }
 
+# List to create a unified dataset about datasets with same properties
+list_points = ['200186', '200304', '200761', '201544', '207044', '210227', '211642', '212763', '212769']
+list_events = ['206974', '212504']
+
+# Relations between create refine scripts and datasets.
+# For reuse the same create script.
 operations_create = {
     'creation_one': [
         '200637', '200652', '214440', '208327'
@@ -154,8 +201,6 @@ operations_create = {
         '200304', '211642', '201544', '212769', '202105', '200967', '207044',
         '212841', '212846', '205736', '200284'
     ],
-    'creation_advice': ['21241109', '21241111'],
-    'creation_via_txt': ['215885', '212531'],
     'creation_211346': ['211346'],
     'creation_212629': ['212629'],
     'creation_208789': ['208789']
@@ -166,31 +211,64 @@ datasets.update(datasets_bc)
 datasets.update(datasets_v)
 datasets.update(datasets_t)
 
+# Folder to save all datasets created
 dataset_folder = '/tmp/datasets/'
 
 
 #############################################
 
-
+# Create datasets folder if it does not exist
 if not os.path.exists(dataset_folder):
     os.makedirs(dataset_folder)
 
 print '\nTBADDownloader has started.'
 print '\n * Checking (' + str(len(datasets.keys())) + ') datasets ...\n'
 
+# Iterate over datasets
 for i in datasets.keys():
+
+    # Save new data or save in the old dataset
     ext = os.path.split(datasets[i])[-1].split('.')[-1]
     name_path = dataset_folder + i + '.' + ext
     name_new_path = dataset_folder + 'new_' + i + '.' + ext
     file_path = name_path
     if os.path.exists(name_path):
         file_path = name_new_path
+
+    # Download dataset with the dict url
     download_dataset(file_path, i, datasets[i])
+
+    # Check if it is old or new with sha
     if not detect_dataset(name_path, name_new_path):
+
+        # Get Refine Options (create script)
         opt = get_project_options(i)
         r = refine.Refine()
         p = r.new_project(name_path, opt)
+
+        # Apply Refine Operations from json file
         p.apply_operations('../refine_op/clean_' + i + '.json')
+
+        # Write new Dataset with cleaned data
+        write_dataset(i, p.export_rows(format='tsv'), add_to_big_dataset)
+
+        # Delete Refine Project to clean memory
         p.delete_project()
+
+    else:
+
+        # Write new Dataset with previous data
+        with open(dataset_folder + i + '_dataset.csv', 'r') as f:
+            ec_file_list = f.read().split('\r\n')
+            for x in range(0, len(ec_file_list) - 1):
+                d = ec_file_list[x]
+                d = d.replace('"','')
+                d = d.replace(', ','__ ').replace(',','\t').replace('__', ',')
+                d = d.split('\t')
+                add_to_big_dataset(i, x, d)
+
+# Write or skip updated unified csv
+write_big_dataset('dataset_points', dataset_p)
+write_big_dataset('dataset_events', dataset_e)
 
 print '\nTBADDownloader has finished.\n'
