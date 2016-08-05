@@ -60,6 +60,7 @@ Bibliotecas
 
 http://datos.madrid.es/vgn-ext-templating/v/index.jsp?vgnextoid=ed35401429b83410VgnVCM1000000b205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD
 
+* El fichero el viernes 5 de Agosto del 2016 dejo de dar resultados.
 * El fichero no deberia tener datos no georeferenciados.
 * La columna transporte deberia estar disgregada en varias segun el tipo de transporte, dificil de parsear.
 
