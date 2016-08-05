@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TuBarrioAlDetalle - Home</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Web App for Datathon Madrid 2016 contest">
+  <meta name="author" content="Alejandro F. Carrera">
+  <meta name="robots" content="noimageindex">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="og:title" content="TuBarrioAlDetalle">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="favourite icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-icon-precomposed.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="manifest" href="img/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <script src="https://use.fontawesome.com/123a760022.js"></script>
+  <link href='css/home.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div id="header-mleft">
+				<a href="/"><p><i class="fa fa-map-o" aria-hidden="true"></i>Tu Barrio Al Detalle</p></a>
+			</div>
+			<div id="header-mright">
+				<a id="event-tap" href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Eventos</a>
+				<a id="locat-tap" href="#"><i class="fa fa-map-signs" aria-hidden="true"></i>Localizaciones</a>
+			</div>
+		</header>
+		<div id="container"></div>
+		<footer>
+			<p>Alejandro F. Carrera <i class="fa fa-copyright" aria-hidden="true"></i></p>
+		</footer>
+	</div>
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+  <script type="text/javascript">
+  	var mainMap = 'https://alejandrofcarrera.carto.com/api/v2/viz/67a8c434-5aa0-11e6-b88a-0e8c56e2ffdb/viz.json';
+  	var eventsMap = 'https://alejandrofcarrera.carto.com/api/v2/viz/4b25850c-5afc-11e6-b50a-0e3a376473ab/viz.json';
+  	var locationsMap = 'https://alejandrofcarrera.carto.com/api/v2/viz/625ce342-5afb-11e6-9f05-0e98b61680bf/viz.json';
+  	var loadCartoMain = function loadCartoMain() {loadCartoDBMap(mainMap);}
+  	var changeEventMap = function changeEventMap() {loadCartoDBMap(eventsMap);}
+  	var changeLocationsMap = function changeEventMap() {loadCartoDBMap(locationsMap);}
+  	var loadCartoDBMap = function loadCartoDBMap(urlMap)
+  	{
+  		document.getElementById('container').innerHTML = '';
+  		cartodb.createVis('container', urlMap, {
+          shareable: false,
+          title: false,
+          description: false,
+          search: false,
+          tiles_loader: true,
+          center_lat: 40.4165000,
+          center_lon: -3.7025600,
+          zoom: 12
+      })
+      .done(function(vis, layers) {
+        layers[1].setInteraction(true);
+        if (urlMap === mainMap)
+        {
+        	if(document.body.attachEvent)
+        	{
+    				document.getElementById('event-tap').attachEvent("onclick", changeEventMap);
+    				document.getElementById('locat-tap').attachEvent("onclick", changeLocationsMap);
+        	}
+					else
+					{
+    				document.getElementById('event-tap').addEventListener("click", changeEventMap);
+    				document.getElementById('locat-tap').addEventListener("click", changeLocationsMap);
+					}
+				}
+			})
+      .error(function(err) {
+        console.log(err);
+      });
+  	};
+  </script>
+  <script type="text/javascript">window.onload = loadCartoMain;</script>
+</body>
+</html>

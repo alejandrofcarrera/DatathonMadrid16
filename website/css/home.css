@@ -1,0 +1,132 @@
+/* Main CSS */
+
+html, p, i, a {
+	font-family: arial,sans-serif;
+}
+
+html,
+body {
+	padding: 0;
+    margin: 0;
+    min-height: 100%;
+}
+
+#wrapper {
+	padding: 50px 0;
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+/* Header CSS */
+
+header {
+	margin-top: -50px;
+	height: 50px;
+    width: 100%;
+    background-color: #1a4b78;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+}
+
+#header-mleft {
+	flex-grow: 1;
+}
+
+#header-mleft > a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#header-mleft > a > p {
+	color: white;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+#header-mleft > a > p > i {
+	margin-left: 10px;
+    margin-right: 10px;
+}
+
+#header-mright > a {
+	color: white;
+    text-decoration: none;
+    margin: 0 20px;
+}
+
+#header-mright > a > i {
+	margin-right: 10px;
+}
+
+/* Container CSS */
+
+#container {
+	min-height: 100%;
+	height: 100%;
+}
+
+/* Footer CSS */
+
+footer {
+	margin-bottom: -50px;
+	height: 50px;
+	background-color: #1a4b78;
+	display: flex;
+    align-items: center;
+}
+
+footer > p {
+	color: white;
+    margin-left: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+footer > p > i {
+	margin-left: 10px;
+}
+
+/* Responsive CSS */
+@media (max-width: 600px) {
+	#wrapper {
+		padding: 65px 0;
+	}
+	header {
+		height: 80px;
+		display: block;
+		margin-top: -65px;
+	}
+	#header-mleft {
+		align-items: center;
+    	display: flex;
+    	height: 40px;
+	}
+	#header-mleft > p {
+    	font-size: 16px;
+    	text-align: center;
+    	width: 100%;
+    }
+    #header-mright {
+    	position: relative;
+    	height: 40px;
+    	display: flex;
+    	align-items: center;
+    }
+    #header-mright > a {
+    	margin: 0;
+    	font-size: 16px;
+    	width: 50%;
+    	text-align: center;
+    }
+}
+
+@media (max-width: 350px) {
+	#header-mright > a {
+    	font-size: 14px;
+    }
+}
